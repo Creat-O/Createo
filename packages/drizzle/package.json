@@ -1,0 +1,50 @@
+{
+  "name": "drizzle",
+  "version": "1.0.0",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./src/index.ts",
+      "types": "./src/index.ts",
+      "default": "./src/index.ts"
+    },
+    "./postgres": {
+      "import": "./src/exports/postgres.ts",
+      "types": "./src/exports/postgres.ts",
+      "default": "./src/exports/postgres.ts"
+    },
+    "./types": {
+      "import": "./src/types.ts",
+      "types": "./src/types.ts",
+      "default": "./src/types.ts"
+    }
+  },
+  "main": "./src/index.ts",
+  "types": "./src/types.ts",
+  "files": [
+    "dist",
+    "mock.js"
+  ],
+  "scripts": {
+    "build": "pnpm build:swc && pnpm build:types",
+    "build:swc": "swc ./src -d ./dist --config-file .swcrc --strip-leading-paths",
+    "build:types": "tsc --emitDeclarationOnly --outDir dist",
+    "clean": "rimraf -g {dist,*.tsbuildinfo}",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "prepack": "pnpm clean && pnpm turbo build",
+    "prepublishOnly": "pnpm clean && pnpm turbo build"
+  },
+  "dependencies": {
+    "console-table-printer": "2.12.1",
+    "drizzle-orm": "0.40.1",
+    "prompts": "2.4.2",
+    "to-snake-case": "1.0.0",
+    "uuid": "11.1.0"
+  },
+  "devDependencies": {
+    "@libsql/client": "0.15.0",
+    "@types/pg": "8.11.11",
+    "@types/to-snake-case": "1.0.2"
+  }
+}
