@@ -1,0 +1,15 @@
+{
+  "name": "website",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "astro": "astro",
+    "build": "astro build",
+    "dev": "astro dev",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@astrojs/node": "^9.1.3",
+    "astro": "^5.5.3"
+  }
+}

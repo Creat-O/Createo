@@ -1,0 +1,9 @@
+{
+  "name": "remix-createo-monorepo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev:createo": "cd createo && pnpm dev",
+    "dev:website": "cd website && pnpm dev"
+  }
+}
